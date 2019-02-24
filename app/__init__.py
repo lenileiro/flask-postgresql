@@ -9,7 +9,11 @@ def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object(app_config[config_name])
     app.app_context().push()
-    init_db(app.config['DATABASE_URI'])
+    with app.app_context():
+        init_db(app.config['DATABASE_URI'])
+    
+    from .api import user
+    app.register_blueprint(user.bp)
 
     @app.route("/")
     def index():
