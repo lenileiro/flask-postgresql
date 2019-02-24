@@ -7,7 +7,10 @@ from .models import Base
 class UserModel:
     @staticmethod
     def insert_user(params):
-            return Base.insert(
+            created_at = '%s' % (datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+            hashed_pwd = generate_password_hash(params["password"])
+
+            national_id = Base.insert(
               'user',
               national_id=params["national_id"],
               firstname=params["firstname"],
@@ -16,6 +19,9 @@ class UserModel:
               email=params["email"],
               isadmin=params["isadmin"],
               phone=params["phone"],
-              password=params["password"],
-              passporturl=params["passporturl"]
+              passporturl=params["passporturl"],
+              password=hashed_pwd,
+              created_at=created_at
                )
+               
+            return Base.get('user', national_id=national_id)

@@ -51,5 +51,7 @@ class Base:
 
         keys = ','.join([key for key in data])
         values = str(tuple(data[key] for key in data))
-        sql = f"INSERT INTO politico.{table_name} ({keys}) VALUES {values}"
+        sql = f"""INSERT INTO politico.{table_name} ({keys}) VALUES {values}
+        RETURNING national_id"""
         cur.execute(sql)
+        return cur.fetchone()[0]
