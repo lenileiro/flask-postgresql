@@ -13,7 +13,7 @@ class Validate:
                 passporturl=data["passporturl"],
                 password=data["password"]
                 )
-        
+
         except KeyError as e:
             return f"{e} field is required"
 
