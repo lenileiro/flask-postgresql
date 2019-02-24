@@ -1,6 +1,4 @@
-import os
 from psycopg2 import connect
-from datetime import datetime
 from flask import current_app
 
 

@@ -7,10 +7,6 @@ cur = conn.cursor()
 
 
 class Base:
-    '''Base class to set up database'''
-    def save(self):
-        conn.commit()
-
     @staticmethod
     def get(table_name, **kwargs):
         for key, val in kwargs.items():

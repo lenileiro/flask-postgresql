@@ -11,7 +11,6 @@ def create_app(config_name):
     app.app_context().push()
     with app.app_context():
         init_db(app.config['DATABASE_URI'])
-    
     from .api import user
     app.register_blueprint(user.bp)
 
