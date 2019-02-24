@@ -1,3 +1,5 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/f77c1865eb3d2b732e4f/maintainability)](https://codeclimate.com/github/lenileiro/flask-postgresql/maintainability)
+
 # database
 simple python database rapper
 
