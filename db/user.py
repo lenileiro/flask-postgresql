@@ -23,5 +23,5 @@ class UserModel:
               password=hashed_pwd,
               created_at=created_at
                )
-               
+
             return Base.get('user', national_id=national_id)
